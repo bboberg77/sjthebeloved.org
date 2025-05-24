@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Link Example</title>
+</head>
+<body>
+    <div id="pdfLinkContainer0"></div>
+    <div id="pdfLinkContainer1"></div>
+    <div id="pdfLinkContainer2"></div>
+    <div id="pdfLinkContainer3"></div>
+    <div id="pdfLinkContainer4"></div>
+    <div id="pdfLinkContainer5"></div>
+    <div id="pdfLinkContainer6"></div>
+    <div id="pdfLinkContainer7"></div>
+    <div id="pdfLinkContainer8"></div>
+    <div id="pdfLinkContainer9"></div>
+    <div id="pdfLinkContainer10"></div>
+    <div id="pdfLinkContainer11"></div>
+    <h2>PDF Conditional Display</h2>
+
+    <script>
+        // Paths to the PDF files
+        /** const pdfPaths = ['./bulletin/wgcbulletindecember22-24.pdf', './bulletin/wgcbulletindecember22-24-2.pdf', 
+                          './bulletin/wgcbulletindecember22-24-3.pdf'];
+        
+        const pdfPaths = ['./bulletins/wgcbulletindecember22-24.pdf', './bulletins/wgcbulletindecember22-24-2.pdf', 
+        './bulletins/wgcbulletindecember22-24-3.pdf'];
+
+        const pdfPaths = ['./bulletins/bulletin2025-0.pdf', './bulletins/bulletin2025-1.pdf', './bulletins/bulletin2025-2.pdf',
+        './bulletins/bulletin2025-3.pdf', './bulletins/bulletin2025-4.pdf', './bulletins/bulletin2025-5.pdf',
+        './bulletins/bulletin2025-6.pdf', './bulletins/bulletin2025-7.pdf', './bulletins/bulletin2025-8.pdf',
+        './bulletins/bulletin2025-9.pdf', './bulletins/bulletin2025-10.pdf', './bulletins/bulletin2025-11.pdf'];
+        
+        const pdfDesc = ['Three St. Johns bulletin 1', 'Three St. Johns bulletin 2', 'Three St. Johns bulletin 3'];
+        */
+
+        const pdfPaths = ['./bulletins/bulletin2025-0.pdf', './bulletins/bulletin2025-1.pdf', './bulletins/bulletin2025-2.pdf',
+        './bulletins/bulletin2025-3.pdf', './bulletins/bulletin2025-4.pdf', './bulletins/bulletin2025-5.pdf',
+        './bulletins/bulletin2025-6.pdf', './bulletins/bulletin2025-7.pdf', './bulletins/bulletin2025-8.pdf',
+        './bulletins/bulletin2025-9.pdf', './bulletins/bulletin2025-10.pdf', './bulletins/bulletin2025-11.pdf'];
+
+        const pdfDesc = ['Bulletin: Solemnity of the Epiphany of the Lord - Sunday January 5, 2025', 'Bulletin: Feast of the Baptism of the Lord - January 12, 2025',
+            'Bulletin: Second Sunday in Ordinary Time - Sunday January 19, 2025','Bulletin: Third Sunday in Ordinary Time - January 26, 2025',
+            'Bulletin: Feast of the Presentation - Fourth Sunday in Ordinary Time - February 2, 2025','Bulletin: Fifth Sunday in Ordinary Time - February 9, 2025',
+            'Bulletin: Sixth Sunday in Ordinary Time - February 16, 2025','Bulletin: Seventh Sunday in Ordinary Time - February 23, 2025',
+            'Bulletin: Eighth Sunday in Ordinary Time - March 2, 2025','Bulletin: First Sunday of Lent - March 9, 2025',
+            'Bulletin: Second Sunday of Lent - March 16, 2025','Bulletin: Third Sunday of Lent - March 23, 2025'
+        ];
+
+        pdfPaths.forEach((pdfPath, index) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open('HEAD', pdfPath, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    const linkContainer = document.getElementById('pdfLinkContainer' + (index + 1));
+                    if (xhr.status === 200) {
+                        const link = document.createElement('a');
+                        link.href = pdfPath;
+                        if (index == 0) {
+                            link.textContent = pdfDesc[index];
+                        }
+                        if (index == 1) {
+                            link.textContent = `Download the most recent church bulletin PDF`;
+                        }
+                        if (index == 2) {
+                            link.textContent = `Download a recent church bulletin PDF`;
+                        }
+                        //link.textContent = `Download PDF ${index + 1}`;
+                        linkContainer.appendChild(link);
+                    } //Remove the following comment if you want the text to appear if the PDF does not exist: 
+                        else {
+                        linkContainer.textContent = `Church bulletin PDF ${index + 1} not found`;
+                    } 
+                }
+            };
+            xhr.send();
+        });
+    </script>
+</body>
+</html>
