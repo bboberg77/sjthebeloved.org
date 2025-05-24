@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulletin Management</title>
+</head>
+<body>
+
+<h1 id="BulletingMgmt">Bulletin Management</h1>
+
+<nav>
+    <h2 id="TableOfContents">Table of Contents</h2>
+    <ol>
+      <li><a href="#login">How to Login to AWS</a></li>
+      <li><a href="#access-s3-bucket">How to Access the S3 bucket for the StJohnsChurches.com Website</a></li>
+      <li><a href="#manage-bulletins">How to manage the Bulletins for the StJohnsChurches.com website</a></li>
+      <li><a href="#delete-pdf">How to Delete a PDF file from the Bulletin S3 Folder</a></li>
+      <li><a href="#rename-pdf">How to Rename a PDF file in the Bulletin S3 Folder</a></li>
+    </ol>
+</nav>
+<br>
+
+<h2 id="login">How to Login to AWS</h2>
+
+Follow these steps to get logged into AWS. <br><br>
+
+<ol>
+    <Li>Go to <a href="https://aws.amazon.com">https://aws.amazon.com</a></Li>
+    <li>Click on the Sign In link in the upper right corner of the screen.</li>
+    <li><img src="images/bulletin1.png" alt="Sign In" style="width: 25%; height: auto;"><br><br></li>
+    <li>Enter the provided credentials for the authentication screen and press the "Sign In" button:</li>
+    <ul>
+        <li>Account ID:</li>
+        <li>IAM username: </li>
+        <li>Password: </li>
+    </ul>
+    <li>You are now signed in.</li>
+</ol>
+
+
+<h2 id="access-s3-bucket">How to Access the S3 bucket for the <a href="http://www.stjohnschurches.com">StJohnsChurches.com</a> Website</h2>
+
+Once you are logged into AWS you will access the S3 bucket where the webiste is located. 
+There are a couple of ways to access S3. <BR><BR>
+
+If you have recently accessed S3 this service should be displayed on the landing page when you login. 
+You can click on the S3 link to proceed. <BR><BR>
+
+<img src="images/bulletin10.png" alt="S3 link" style="width: 25%; height: auto;"><br><br>
+
+If you don't see the S3 service on the landing page you can enter S3 into the search field at the top
+of the screen. Click on the S3 service icon.<br><br>
+
+<img src="images/bulletin5.png" alt="S3 link" style="width: 25%; height: auto;"><br><br>
+
+On the S3 screen, the list of S3 buckets will be displayed. If the S3 buckets are not displayed you can click on 
+the "General purpose buckets" link on the left side of the page. <br><br>
+
+<img src="images/bulletin15.png" alt="General Purpose Buckets" style="width: 15%; height: auto;"><br><br>
+
+
+<h2 id="manage-bulletins">How to manage the Bulletins for the <a href="http://www.stjohnschurches.com" target="_blank">StJohnsChurches.com</a> website</h2>
+
+When bulletins are uploaded to the stjohnschurches.com website there is a naming convention that needs to be followed. 
+Once a bulletin PDF is uploaded to the website it will automatically appear on the 
+<a href="http://stjohnschurches.com/bulletins.html" target="_blank">church's bulletin page</a>  if you follow the PDF file naming convention. <BR><BR>
+
+The bulletin naming convention is defined in the following spreadsheet. See the BulletinNaming tab of this 
+<a href="https://1drv.ms/x/s!AoV6KGnMUPKYkYs6qANRckHB7Vr9lQ?e=Hbkepz" target="_blank">spreadsheet</body><a>. 
+
+Name the bulletin PDF file the same as defined in the FILENAME column of the spreadsheet that corresponds to the DATE column. The DATE 
+column corresponds to the Sunday of the bulletin. The text string defined in the DESCRIPTION column will automatically appear on the 
+stjohnschurches.com website's Bulletins page. <br><br>
+
+To upload, rename or delete a bulletin PDF navigate to the stjohnschurches.com S3 bucket.: <BR><BR>
+
+<img src="images/bulletin20.png" alt="stjohnschurches.com folder" style="width: 40%; height: auto;"><br><br>
+
+Navigate to the bulletins/ folder:<BR><BR>
+
+<img src="images/bulletin25.png" alt="bulletins folder" style="width: 25%; height: auto;"><br><br>
+
+On your computer, name the PDF file to match the appropriate filename specified in the <a href="https://1drv.ms/x/s!AoV6KGnMUPKYkYs6qANRckHB7Vr9lQ?e=LaAY33" target="_blank">spreadsheet</a>. Then, click on the Upload button. <BR><BR>
+
+<img src="images/bulletin30.png" alt="Upload button" style="width: 25%; height: auto;"><br><br>
+
+On the Upload page click on the "Add Files" button. <BR><BR>
+
+<img src="images/bulletin35.png" alt="Upload button" style="width: 25%; height: auto;"><br><br>
+
+On your computer, navigate to the folder where the PDF bulletin file is located. select the file and click on the Open button. <BR><BR>
+
+<img src="images/bulletin40.png" alt="Upload button" style="width: 25%; height: auto;"><br><br>
+
+Back on the Upload page click on the Upload button (lower right corner). <BR><BR>
+
+<img src="images/bulletin45.png" alt="Upload button" style="width: 25%; height: auto;"><br><br>
+
+Once the upload is conmplete you can click the Close button or proceed to the next step. <BR><BR>
+
+<img src="images/bulletin50.png" alt="Upload button" style="width: 25%; height: auto;"><br><br>
+
+You should now be able to go to the bulletins page of the stjohnschurches.com website and see the newly uploaded bulletin. <BR><BR>
+
+<img src="images/bulletin55.png" alt="Upload button" style="width: 25%; height: auto;"><br><br>
+
+Now, if you go to the <a href="http://stjohnschurches.com/bulletins.html" target="_blank">bulletins page of the stjohnschurches.com website</a> you will see a link to the newly added bulletin.<br><br>
+
+<img src="images/bulletin60.png" alt="Upload button" style="width: 25%; height: auto;"><br><br>
+
+<a href="#BulletingMgmt">Top</a>
+
+
+<br><br>
+
+<h2 id="delete-pdf">How to Delete a PDF file from the Bulletin S3 Folder</h2>
+
+If you want to delete a bulletin that currently resides in the S3 bulletins folder check the checkbox next to the filename. In this example, then bulletin2025-30.pdf file is to be deelted. <br><br>
+
+With the pdf file to be deleted click on the Delete button. <br><br>
+
+<img src="images/bulletin65.png" alt="Upload button" style="width: 25%; height: auto;"> <br><br>
+
+On the subsequent screen the file or files to be deleted will be displayed. You are also required to enter the words, "permanently delete" into the "Permanently delete objects" entry field.
+Once you enter "permanently delete" into the entry field the "Delete objects" button will be enabled. Click the "Delete objects" button to delete the selected PDF file. <br><br>
+
+<img src="images/bulletin70.png" alt="Upload button" style="width: 35%; height: auto;"> <br><br>
+
+If all goes well, the "Successfully deleted objects" verbiage will be displayed on the screen.<BR><BR>
+
+<img src="images/bulletin75.png" alt="Upload button" style="width: 35%; height: auto;"> <br><br>
+
+
+<a href="#BulletingMgmt">Top</a>
+
+
+<br><br>
+
+<h2 id="rename-pdf">How to Rename a PDF file in the Bulletin S3 Folder</h2>
+
+If you want to rename a bulletin that currently resides in the S3 bulletins folder check the checkbox next to the filename. In this example, the bulletin2025-30xxx.pdf file will to be renamed to bulletin2025-30.pdf. <br><br>
+
+<img src="images/bulletin80.png" alt="Upload button" style="width: 25%; height: auto;"> <br><br>
+
+Enter the new file name into the "New object name" entry field. Click on the "Save changes" button. <br><br>
+
+<img src="images/bulletin85.png" alt="Upload button" style="width: 25%; height: auto;"> <br><br>
+
+The "Successfully renamed object" message will be displayed on the screen.<br><br>
+
+<img src="images/bulletin90.png" alt="Upload button" style="width: 25%; height: auto;"> <br><br>
+
+The bulletin2025-30xxx.pdf file has now been successfully renamed to bulletin2025-30.pdf<br><br>
+
+<img src="images/bulletin95.png" alt="Upload button" style="width: 25%; height: auto;"> <br><br>
+
+
+<a href="#BulletingMgmt">Top</a>
+
+
+<BR><BR>
+
+    <BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+
+</body>
+</html>
